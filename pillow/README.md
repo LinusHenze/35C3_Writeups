@@ -1,7 +1,7 @@
 Pillow
 ======
 
-*This is a Writeup for the pillow challenge of 35C3CTF. **Challenge files can be found *[here](https://archive.aachen.ccc.de/35c3ctf.ccc.ac/uploads/pillow-f7dd1b402c468db6ab47e4c3c90b7996e28e7fc5.zip)*. You can submit your exploit [here](https://vms.35c3ctf.ccc.ac/).*
+*This is a Writeup for the pillow challenge of 35C3CTF. Challenge files can be found *[here](https://archive.aachen.ccc.de/35c3ctf.ccc.ac/uploads/pillow-f7dd1b402c468db6ab47e4c3c90b7996e28e7fc5.zip)*. You can submit your exploit [here](https://vms.35c3ctf.ccc.ac/).*
 
 *To simplify the Writeup, I'm using the source code which was released after the CTF *[here](https://github.com/saelo/35c3ctf/tree/master/pillow)*.*
 
@@ -42,8 +42,7 @@ Found it? No?
 Well, this code does not respect the MIG ownership rules. They are as follows:
 
 *If a MIG method returns KERN\_SUCCESS it means that the method took ownership of \*all\* the arguments passed to it.
-If a MIG method returns an error code, then it took ownership of \*none\* of the arguments passed to it.*
-
+If a MIG method returns an error code, then it took ownership of \*none\* of the arguments passed to it.*  
 *(*[source](https://bugs.chromium.org/p/project-zero/issues/detail?id=1417)*)*
 
 What this code however does is that if the passed-in session is invalid, it deallocates the passed-in listener port which we got from the client. It then returns KERN\_FAILURE.
