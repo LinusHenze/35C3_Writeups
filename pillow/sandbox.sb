@@ -1,0 +1,12 @@
+(version 1)
+(deny default)
+
+(import "system.sb")
+
+(allow process-exec (literal (param "BINARY")))
+(allow process-fork)
+
+(allow mach-lookup (global-name "net.saelo.shelld"))
+(allow mach-lookup (global-name "net.saelo.capsd"))
+(allow mach-lookup (global-name "net.saelo.capsd.xpc"))
+

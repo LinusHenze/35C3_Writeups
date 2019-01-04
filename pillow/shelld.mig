@@ -1,0 +1,10 @@
+#include <mach/std_types.defs>
+
+subsystem shelld 133700;
+
+type kernel_version_t           = c_string[*:4096];
+
+routine create_session(shelld: mach_port_t; in session: kernel_version_t);
+routine shell_exec(shelld: mach_port_t; in session: kernel_version_t; in cmd: kernel_version_t);
+routine register_listener(shelld: mach_port_t; in session: kernel_version_t; listener: mach_port_t);
+routine unregister_listener(shelld: mach_port_t; in session: kernel_version_t);
