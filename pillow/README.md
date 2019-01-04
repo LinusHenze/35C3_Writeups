@@ -5,9 +5,6 @@ Pillow
 
 *To simplify the Writeup, I'm using the source code which was released after the CTF *[here](https://github.com/saelo/35c3ctf/tree/master/pillow)*.*
 
-*
-*
-
 In this challenge, we're given two daemons that we can talk to over MIG. Our task is to exploit the macOS sandbox, which was configured to only allow us to talk to these daemons.
 
 Let's look into them. I will start with capsd.
@@ -48,9 +45,6 @@ Well, this code does not respect the MIG ownership rules. They are as follows:
 If a MIG method returns an error code, then it took ownership of \*none\* of the arguments passed to it.*
 
 *(*[source](https://bugs.chromium.org/p/project-zero/issues/detail?id=1417)*)*
-
-*
-*
 
 What this code however does is that if the passed-in session is invalid, it deallocates the passed-in listener port which we got from the client. It then returns KERN\_FAILURE.
 
